@@ -16,10 +16,13 @@
             color: #333;
             overflow: hidden;
             position: relative;
+            margin: 0;
         }
         h1 {
             margin-bottom: 20px;
         }
+
+        /* 立体骰子容器 */
         #dice-container {
             width: 100px;
             height: 100px;
@@ -28,6 +31,8 @@
             animation: bounceDice 1s ease-in-out forwards;
             margin-bottom: 30px;
         }
+
+        /* 每个面 */
         .die-face {
             position: absolute;
             width: 100px;
@@ -48,6 +53,7 @@
         .top    { transform: rotateX(90deg) translateZ(50px); }
         .bottom { transform: rotateX(-90deg) translateZ(50px); }
 
+        /* 投掷按钮 */
         #roll-button {
             padding: 15px 30px;
             font-size: 20px;
@@ -60,14 +66,17 @@
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
+
         #roll-button:hover {
             background: linear-gradient(145deg, #0056b3, #007BFF);
             box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
         }
+
         #roll-button:active {
             transform: scale(0.98);
         }
 
+        /* 显示结果 */
         #result {
             font-size: 24px;
             font-weight: bold;
@@ -90,7 +99,7 @@
             }
         }
 
-        /* 额外的初始化弹跳效果 */
+        /* 弹跳动画 */
         @keyframes bounceDice {
             0% {
                 transform: translateY(0);
@@ -112,6 +121,7 @@
             border-radius: 50%;
             animation: particleEffect 1.5s linear infinite;
         }
+
         @keyframes particleEffect {
             0% {
                 transform: scale(0.5) translateY(0) translateX(0);
@@ -120,6 +130,35 @@
             100% {
                 transform: scale(1.5) translateY(-200px) translateX(100px);
                 opacity: 0;
+            }
+        }
+
+        /* 媒体查询：响应式布局 */
+        @media (max-width: 768px) {
+            #dice-container {
+                width: 80px;
+                height: 80px;
+            }
+            #roll-button {
+                padding: 12px 24px;
+                font-size: 18px;
+            }
+            #result {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #dice-container {
+                width: 60px;
+                height: 60px;
+            }
+            #roll-button {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+            #result {
+                font-size: 18px;
             }
         }
     </style>
